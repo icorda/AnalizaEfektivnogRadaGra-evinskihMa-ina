@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DatotekaDBModelStoreContainer" CdmEntityContainer="DatotekaDBEntities">
+    <EntitySetMapping Name="Kalendars">
+      <EntityTypeMapping TypeName="DatotekaDBModel.Kalendar">
+        <MappingFragment StoreEntitySet="Kalendar">
+          <ScalarProperty Name="ID_Kalendar" ColumnName="ID_Kalendar" />
+          <ScalarProperty Name="RaspoloziviFondCasova" ColumnName="RaspoloziviFondCasova" />
+          <ScalarProperty Name="DrzavniPraznici" ColumnName="DrzavniPraznici" />
+          <ScalarProperty Name="GodisnjiOdmor" ColumnName="GodisnjiOdmor" />
+          <ScalarProperty Name="PlaceniIzostanci" ColumnName="PlaceniIzostanci" />
+          <ScalarProperty Name="Bolovanje" ColumnName="Bolovanje" />
+          <ScalarProperty Name="EfCasPoRadZaGodDan" ColumnName="EfCasPoRadZaGodDan" />
+          <ScalarProperty Name="RaspoloziviBrojDana" ColumnName="RaspoloziviBrojDana" />
+          <ScalarProperty Name="ZimskiPeriod" ColumnName="ZimskiPeriod" />
+          <ScalarProperty Name="MoguciBrojRadnihDana" ColumnName="MoguciBrojRadnihDana" />
+          <ScalarProperty Name="EfektivanBrojCasova" ColumnName="EfektivanBrojCasova" />
+          <ScalarProperty Name="FaktorBrutoNetoZarade" ColumnName="FaktorBrutoNetoZarade" />
+          <ScalarProperty Name="FaktorRezije" ColumnName="FaktorRezije" />
+          <ScalarProperty Name="KoeficientMinulogRada" ColumnName="KoeficientMinulogRada" />
+          <ScalarProperty Name="NajnizaCenaRada" ColumnName="NajnizaCenaRada" />
+          <ScalarProperty Name="TopliObrok" ColumnName="TopliObrok" />
+          <ScalarProperty Name="Regras" ColumnName="Regras" />
+          <ScalarProperty Name="ProsecanMinuliRad" ColumnName="ProsecanMinuliRad" />
+          <ScalarProperty Name="OsnovaZaKalkulaciju" ColumnName="OsnovaZaKalkulaciju" />
+          <ScalarProperty Name="BrojMeseci" ColumnName="BrojMeseci" />
+          <ScalarProperty Name="Nafta" ColumnName="Nafta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Masinas">
+      <EntityTypeMapping TypeName="DatotekaDBModel.Masina">
+        <MappingFragment StoreEntitySet="Masina">
+          <ScalarProperty Name="ID_Masina" ColumnName="ID_Masina" />
+          <ScalarProperty Name="VrstaMasine" ColumnName="VrstaMasine" />
+          <ScalarProperty Name="NazivMasine" ColumnName="NazivMasine" />
+          <ScalarProperty Name="NabavnaVrednost" ColumnName="NabavnaVrednost" />
+          <ScalarProperty Name="VekTrajanja" ColumnName="VekTrajanja" />
+          <ScalarProperty Name="GodisnjiFondEfCasRad" ColumnName="GodisnjiFondEfCasRad" />
+          <ScalarProperty Name="SnagaMotoraKW" ColumnName="SnagaMotoraKW" />
+          <ScalarProperty Name="SnagaMotoraKS" ColumnName="SnagaMotoraKS" />
+          <ScalarProperty Name="Amortizacija" ColumnName="Amortizacija" />
+          <ScalarProperty Name="InvesticionoOdrzavanje" ColumnName="InvesticionoOdrzavanje" />
+          <ScalarProperty Name="TekuceOdrzavanje" ColumnName="TekuceOdrzavanje" />
+          <ScalarProperty Name="Osiguranje" ColumnName="Osiguranje" />
+          <ScalarProperty Name="Gorivo" ColumnName="Gorivo" />
+          <ScalarProperty Name="Mazivo" ColumnName="Mazivo" />
+          <ScalarProperty Name="ID_Kalendar" ColumnName="ID_Kalendar" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PomocnaMasinas">
+      <EntityTypeMapping TypeName="DatotekaDBModel.PomocnaMasina">
+        <MappingFragment StoreEntitySet="PomocnaMasina">
+          <ScalarProperty Name="ID_PomocnaMasina" ColumnName="ID_PomocnaMasina" />
+          <ScalarProperty Name="VrstaMasine" ColumnName="VrstaMasine" />
+          <ScalarProperty Name="NazivMasine" ColumnName="NazivMasine" />
+          <ScalarProperty Name="NabavnaVrednost" ColumnName="NabavnaVrednost" />
+          <ScalarProperty Name="VekTrajanja" ColumnName="VekTrajanja" />
+          <ScalarProperty Name="GodisnjiFondEfCasRad" ColumnName="GodisnjiFondEfCasRad" />
+          <ScalarProperty Name="Amortizacija" ColumnName="Amortizacija" />
+          <ScalarProperty Name="InvesticionoOdrzavanje" ColumnName="InvesticionoOdrzavanje" />
+          <ScalarProperty Name="TekuceOdrzavanje" ColumnName="TekuceOdrzavanje" />
+          <ScalarProperty Name="Osiguranje" ColumnName="Osiguranje" />
+          <ScalarProperty Name="Mazivo" ColumnName="Mazivo" />
+          <ScalarProperty Name="ID_Kalendar" ColumnName="ID_Kalendar" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Posaos">
+      <EntityTypeMapping TypeName="DatotekaDBModel.Posao">
+        <MappingFragment StoreEntitySet="Posao">
+          <ScalarProperty Name="ID_Posao" ColumnName="ID_Posao" />
+          <ScalarProperty Name="VrstaPosla" ColumnName="VrstaPosla" />
+          <ScalarProperty Name="VrstaMasine" ColumnName="VrstaMasine" />
+          <ScalarProperty Name="NazivMasine" ColumnName="NazivMasine" />
+          <ScalarProperty Name="Radnici" ColumnName="Radnici" />
+          <ScalarProperty Name="PlataRukovaoca" ColumnName="PlataRukovaoca" />
+          <ScalarProperty Name="Svega" ColumnName="Svega" />
+          <ScalarProperty Name="RezijskiTroskovi" ColumnName="RezijskiTroskovi" />
+          <ScalarProperty Name="CenaPoCasuRadaBezPDVa" ColumnName="CenaPoCasuRadaBezPDVa" />
+          <ScalarProperty Name="CenaPoCasuRadaSaPDVom" ColumnName="CenaPoCasuRadaSaPDVom" />
+          <ScalarProperty Name="Norma" ColumnName="Norma" />
+          <ScalarProperty Name="CenaPoNormiBezPDVa" ColumnName="CenaPoNormiBezPDVa" />
+          <ScalarProperty Name="CenaPoNormiSaPDVom" ColumnName="CenaPoNormiSaPDVom" />
+          <ScalarProperty Name="VrstaPomMas" ColumnName="VrstaPomMas" />
+          <ScalarProperty Name="NazivPomMas" ColumnName="NazivPomMas" />
+          <ScalarProperty Name="ID_Radnik" ColumnName="ID_Radnik" />
+          <ScalarProperty Name="ID_Masina" ColumnName="ID_Masina" />
+          <ScalarProperty Name="ID_PomMasina" ColumnName="ID_PomMasina" />
+          <ScalarProperty Name="ID_VrstaPosla" ColumnName="ID_VrstaPosla" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Radniks">
+      <EntityTypeMapping TypeName="DatotekaDBModel.Radnik">
+        <MappingFragment StoreEntitySet="Radnik">
+          <ScalarProperty Name="ID_Radnik" ColumnName="ID_Radnik" />
+          <ScalarProperty Name="Kvalifikacija" ColumnName="Kvalifikacija" />
+          <ScalarProperty Name="KoeficientStrucnosti" ColumnName="KoeficientStrucnosti" />
+          <ScalarProperty Name="NetoIznosZaGodDana" ColumnName="NetoIznosZaGodDana" />
+          <ScalarProperty Name="NetoSatnina" ColumnName="NetoSatnina" />
+          <ScalarProperty Name="BrutoSatnina" ColumnName="BrutoSatnina" />
+          <ScalarProperty Name="BrutoSatninaSaRezijom" ColumnName="BrutoSatninaSaRezijom" />
+          <ScalarProperty Name="ID_Kalendar" ColumnName="ID_Kalendar" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="DatotekaDBModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VrstaPoslaZaPosaos">
+      <EntityTypeMapping TypeName="DatotekaDBModel.VrstaPoslaZaPosao">
+        <MappingFragment StoreEntitySet="VrstaPoslaZaPosao">
+          <ScalarProperty Name="ID_VrstaPosla" ColumnName="ID_VrstaPosla" />
+          <ScalarProperty Name="VrstaPosla" ColumnName="VrstaPosla" />
+          <ScalarProperty Name="VrstaMasine" ColumnName="VrstaMasine" />
+          <ScalarProperty Name="ImaPomMas" ColumnName="ImaPomMas" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

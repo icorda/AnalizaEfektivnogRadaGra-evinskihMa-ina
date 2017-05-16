@@ -1,0 +1,257 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DatotekaDBModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="DatotekaDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Kalendars" EntityType="DatotekaDBModel.Kalendar" />
+    <EntitySet Name="Masinas" EntityType="DatotekaDBModel.Masina" />
+    <EntitySet Name="PomocnaMasinas" EntityType="DatotekaDBModel.PomocnaMasina" />
+    <EntitySet Name="Posaos" EntityType="DatotekaDBModel.Posao" />
+    <EntitySet Name="Radniks" EntityType="DatotekaDBModel.Radnik" />
+    <EntitySet Name="sysdiagrams" EntityType="DatotekaDBModel.sysdiagram" />
+    <EntitySet Name="VrstaPoslaZaPosaos" EntityType="DatotekaDBModel.VrstaPoslaZaPosao" />
+    <AssociationSet Name="FK_Masina_Kalendar" Association="DatotekaDBModel.FK_Masina_Kalendar">
+      <End Role="Kalendar" EntitySet="Kalendars" />
+      <End Role="Masina" EntitySet="Masinas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PomocnaMasina_Kalendar" Association="DatotekaDBModel.FK_PomocnaMasina_Kalendar">
+      <End Role="Kalendar" EntitySet="Kalendars" />
+      <End Role="PomocnaMasina" EntitySet="PomocnaMasinas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Radnik_Kalendar" Association="DatotekaDBModel.FK_Radnik_Kalendar">
+      <End Role="Kalendar" EntitySet="Kalendars" />
+      <End Role="Radnik" EntitySet="Radniks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Posao_Masina" Association="DatotekaDBModel.FK_Posao_Masina">
+      <End Role="Masina" EntitySet="Masinas" />
+      <End Role="Posao" EntitySet="Posaos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Posao_PomocnaMasina" Association="DatotekaDBModel.FK_Posao_PomocnaMasina">
+      <End Role="PomocnaMasina" EntitySet="PomocnaMasinas" />
+      <End Role="Posao" EntitySet="Posaos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Posao_Radnik" Association="DatotekaDBModel.FK_Posao_Radnik">
+      <End Role="Radnik" EntitySet="Radniks" />
+      <End Role="Posao" EntitySet="Posaos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Posao_VrstaPoslaZaPosao" Association="DatotekaDBModel.FK_Posao_VrstaPoslaZaPosao">
+      <End Role="VrstaPoslaZaPosao" EntitySet="VrstaPoslaZaPosaos" />
+      <End Role="Posao" EntitySet="Posaos" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Kalendar">
+    <Key>
+      <PropertyRef Name="ID_Kalendar" />
+    </Key>
+    <Property Name="ID_Kalendar" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RaspoloziviFondCasova" Type="Decimal" Nullable="false" />
+    <Property Name="DrzavniPraznici" Type="Decimal" Nullable="false" />
+    <Property Name="GodisnjiOdmor" Type="Decimal" Nullable="false" />
+    <Property Name="PlaceniIzostanci" Type="Decimal" Nullable="false" />
+    <Property Name="Bolovanje" Type="Decimal" Nullable="false" />
+    <Property Name="EfCasPoRadZaGodDan" Type="Decimal" Nullable="false" />
+    <Property Name="RaspoloziviBrojDana" Type="Decimal" Nullable="false" />
+    <Property Name="ZimskiPeriod" Type="Decimal" Nullable="false" />
+    <Property Name="MoguciBrojRadnihDana" Type="Decimal" Nullable="false" />
+    <Property Name="EfektivanBrojCasova" Type="Decimal" Nullable="false" />
+    <Property Name="FaktorBrutoNetoZarade" Type="Decimal" Nullable="false" />
+    <Property Name="FaktorRezije" Type="Decimal" Nullable="false" />
+    <Property Name="KoeficientMinulogRada" Type="Decimal" Nullable="false" />
+    <Property Name="NajnizaCenaRada" Type="Decimal" Nullable="false" />
+    <Property Name="TopliObrok" Type="Decimal" Nullable="false" />
+    <Property Name="Regras" Type="Decimal" Nullable="false" />
+    <Property Name="ProsecanMinuliRad" Type="Decimal" Nullable="false" />
+    <Property Name="OsnovaZaKalkulaciju" Type="Decimal" Nullable="false" />
+    <Property Name="BrojMeseci" Type="Decimal" Nullable="false" />
+    <Property Name="Nafta" Type="Decimal" Nullable="false" />
+    <NavigationProperty Name="Masinas" Relationship="DatotekaDBModel.FK_Masina_Kalendar" FromRole="Kalendar" ToRole="Masina" />
+    <NavigationProperty Name="PomocnaMasinas" Relationship="DatotekaDBModel.FK_PomocnaMasina_Kalendar" FromRole="Kalendar" ToRole="PomocnaMasina" />
+    <NavigationProperty Name="Radniks" Relationship="DatotekaDBModel.FK_Radnik_Kalendar" FromRole="Kalendar" ToRole="Radnik" />
+  </EntityType>
+  <EntityType Name="Masina">
+    <Key>
+      <PropertyRef Name="ID_Masina" />
+    </Key>
+    <Property Name="ID_Masina" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VrstaMasine" Type="String" Nullable="false" MaxLength="7" Unicode="true" FixedLength="false" />
+    <Property Name="NazivMasine" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="NabavnaVrednost" Type="Decimal" Nullable="false" />
+    <Property Name="VekTrajanja" Type="Decimal" Nullable="false" />
+    <Property Name="GodisnjiFondEfCasRad" Type="Decimal" Nullable="false" />
+    <Property Name="SnagaMotoraKW" Type="Decimal" Nullable="false" />
+    <Property Name="SnagaMotoraKS" Type="Decimal" Nullable="false" />
+    <Property Name="Amortizacija" Type="Decimal" Nullable="false" />
+    <Property Name="InvesticionoOdrzavanje" Type="Decimal" Nullable="false" />
+    <Property Name="TekuceOdrzavanje" Type="Decimal" Nullable="false" />
+    <Property Name="Osiguranje" Type="Decimal" Nullable="false" />
+    <Property Name="Gorivo" Type="Decimal" Nullable="false" />
+    <Property Name="Mazivo" Type="Decimal" Nullable="false" />
+    <Property Name="ID_Kalendar" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Kalendar" Relationship="DatotekaDBModel.FK_Masina_Kalendar" FromRole="Masina" ToRole="Kalendar" />
+    <NavigationProperty Name="Posaos" Relationship="DatotekaDBModel.FK_Posao_Masina" FromRole="Masina" ToRole="Posao" />
+  </EntityType>
+  <EntityType Name="PomocnaMasina">
+    <Key>
+      <PropertyRef Name="ID_PomocnaMasina" />
+    </Key>
+    <Property Name="ID_PomocnaMasina" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VrstaMasine" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="NazivMasine" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="NabavnaVrednost" Type="Decimal" Nullable="false" />
+    <Property Name="VekTrajanja" Type="Decimal" Nullable="false" />
+    <Property Name="GodisnjiFondEfCasRad" Type="Decimal" Nullable="false" />
+    <Property Name="Amortizacija" Type="Decimal" Nullable="false" />
+    <Property Name="InvesticionoOdrzavanje" Type="Decimal" Nullable="false" />
+    <Property Name="TekuceOdrzavanje" Type="Decimal" Nullable="false" />
+    <Property Name="Osiguranje" Type="Decimal" Nullable="false" />
+    <Property Name="Mazivo" Type="Decimal" Nullable="false" />
+    <Property Name="ID_Kalendar" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Kalendar" Relationship="DatotekaDBModel.FK_PomocnaMasina_Kalendar" FromRole="PomocnaMasina" ToRole="Kalendar" />
+    <NavigationProperty Name="Posaos" Relationship="DatotekaDBModel.FK_Posao_PomocnaMasina" FromRole="PomocnaMasina" ToRole="Posao" />
+  </EntityType>
+  <EntityType Name="Posao">
+    <Key>
+      <PropertyRef Name="ID_Posao" />
+    </Key>
+    <Property Name="ID_Posao" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VrstaPosla" Type="String" Nullable="false" MaxLength="30" Unicode="true" FixedLength="false" />
+    <Property Name="VrstaMasine" Type="String" Nullable="false" MaxLength="7" Unicode="true" FixedLength="false" />
+    <Property Name="NazivMasine" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Radnici" Type="String" Nullable="false" MaxLength="30" Unicode="true" FixedLength="false" />
+    <Property Name="PlataRukovaoca" Type="Decimal" Nullable="false" />
+    <Property Name="Svega" Type="Decimal" Nullable="false" />
+    <Property Name="RezijskiTroskovi" Type="Decimal" Nullable="false" />
+    <Property Name="CenaPoCasuRadaBezPDVa" Type="Decimal" Nullable="false" />
+    <Property Name="CenaPoCasuRadaSaPDVom" Type="Decimal" Nullable="false" />
+    <Property Name="Norma" Type="Decimal" Nullable="false" />
+    <Property Name="CenaPoNormiBezPDVa" Type="Decimal" Nullable="false" />
+    <Property Name="CenaPoNormiSaPDVom" Type="Decimal" Nullable="false" />
+    <Property Name="VrstaPomMas" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="NazivPomMas" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ID_Radnik" Type="Int32" Nullable="false" />
+    <Property Name="ID_Masina" Type="Int32" Nullable="false" />
+    <Property Name="ID_PomMasina" Type="Int32" Nullable="false" />
+    <Property Name="ID_VrstaPosla" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Masina" Relationship="DatotekaDBModel.FK_Posao_Masina" FromRole="Posao" ToRole="Masina" />
+    <NavigationProperty Name="PomocnaMasina" Relationship="DatotekaDBModel.FK_Posao_PomocnaMasina" FromRole="Posao" ToRole="PomocnaMasina" />
+    <NavigationProperty Name="Radnik" Relationship="DatotekaDBModel.FK_Posao_Radnik" FromRole="Posao" ToRole="Radnik" />
+    <NavigationProperty Name="VrstaPoslaZaPosao" Relationship="DatotekaDBModel.FK_Posao_VrstaPoslaZaPosao" FromRole="Posao" ToRole="VrstaPoslaZaPosao" />
+  </EntityType>
+  <EntityType Name="Radnik">
+    <Key>
+      <PropertyRef Name="ID_Radnik" />
+    </Key>
+    <Property Name="ID_Radnik" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Kvalifikacija" Type="String" Nullable="false" MaxLength="5" Unicode="true" FixedLength="false" />
+    <Property Name="KoeficientStrucnosti" Type="Decimal" Nullable="false" />
+    <Property Name="NetoIznosZaGodDana" Type="Decimal" Nullable="false" />
+    <Property Name="NetoSatnina" Type="Decimal" Nullable="false" />
+    <Property Name="BrutoSatnina" Type="Decimal" Nullable="false" />
+    <Property Name="BrutoSatninaSaRezijom" Type="Decimal" Nullable="false" />
+    <Property Name="ID_Kalendar" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Kalendar" Relationship="DatotekaDBModel.FK_Radnik_Kalendar" FromRole="Radnik" ToRole="Kalendar" />
+    <NavigationProperty Name="Posaos" Relationship="DatotekaDBModel.FK_Posao_Radnik" FromRole="Radnik" ToRole="Posao" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="VrstaPoslaZaPosao">
+    <Key>
+      <PropertyRef Name="ID_VrstaPosla" />
+    </Key>
+    <Property Name="ID_VrstaPosla" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VrstaPosla" Type="String" Nullable="false" MaxLength="30" Unicode="true" FixedLength="false" />
+    <Property Name="VrstaMasine" Type="String" Nullable="false" MaxLength="7" Unicode="true" FixedLength="false" />
+    <Property Name="ImaPomMas" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Posaos" Relationship="DatotekaDBModel.FK_Posao_VrstaPoslaZaPosao" FromRole="VrstaPoslaZaPosao" ToRole="Posao" />
+  </EntityType>
+  <Association Name="FK_Masina_Kalendar">
+    <End Role="Kalendar" Type="DatotekaDBModel.Kalendar" Multiplicity="1" />
+    <End Role="Masina" Type="DatotekaDBModel.Masina" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kalendar">
+        <PropertyRef Name="ID_Kalendar" />
+      </Principal>
+      <Dependent Role="Masina">
+        <PropertyRef Name="ID_Kalendar" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PomocnaMasina_Kalendar">
+    <End Role="Kalendar" Type="DatotekaDBModel.Kalendar" Multiplicity="1" />
+    <End Role="PomocnaMasina" Type="DatotekaDBModel.PomocnaMasina" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kalendar">
+        <PropertyRef Name="ID_Kalendar" />
+      </Principal>
+      <Dependent Role="PomocnaMasina">
+        <PropertyRef Name="ID_Kalendar" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Radnik_Kalendar">
+    <End Role="Kalendar" Type="DatotekaDBModel.Kalendar" Multiplicity="1" />
+    <End Role="Radnik" Type="DatotekaDBModel.Radnik" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kalendar">
+        <PropertyRef Name="ID_Kalendar" />
+      </Principal>
+      <Dependent Role="Radnik">
+        <PropertyRef Name="ID_Kalendar" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Posao_Masina">
+    <End Role="Masina" Type="DatotekaDBModel.Masina" Multiplicity="1" />
+    <End Role="Posao" Type="DatotekaDBModel.Posao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Masina">
+        <PropertyRef Name="ID_Masina" />
+      </Principal>
+      <Dependent Role="Posao">
+        <PropertyRef Name="ID_Masina" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Posao_PomocnaMasina">
+    <End Role="PomocnaMasina" Type="DatotekaDBModel.PomocnaMasina" Multiplicity="1" />
+    <End Role="Posao" Type="DatotekaDBModel.Posao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PomocnaMasina">
+        <PropertyRef Name="ID_PomocnaMasina" />
+      </Principal>
+      <Dependent Role="Posao">
+        <PropertyRef Name="ID_PomMasina" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Posao_Radnik">
+    <End Role="Radnik" Type="DatotekaDBModel.Radnik" Multiplicity="1" />
+    <End Role="Posao" Type="DatotekaDBModel.Posao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Radnik">
+        <PropertyRef Name="ID_Radnik" />
+      </Principal>
+      <Dependent Role="Posao">
+        <PropertyRef Name="ID_Radnik" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Posao_VrstaPoslaZaPosao">
+    <End Role="VrstaPoslaZaPosao" Type="DatotekaDBModel.VrstaPoslaZaPosao" Multiplicity="1" />
+    <End Role="Posao" Type="DatotekaDBModel.Posao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VrstaPoslaZaPosao">
+        <PropertyRef Name="ID_VrstaPosla" />
+      </Principal>
+      <Dependent Role="Posao">
+        <PropertyRef Name="ID_VrstaPosla" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
